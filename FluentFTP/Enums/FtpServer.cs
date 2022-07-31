@@ -1,11 +1,13 @@
 ﻿using System;
 
-namespace FluentFTP {
+namespace FluentFTP
+{
 	/// <summary>
 	/// Defines the type of the FTP server software.
 	/// Add constants here as you add detection scripts for individual server types.
 	/// </summary>
-	public enum FtpServer {
+	public enum FtpServer
+	{
 		/// <summary>
 		/// Unknown FTP server software
 		/// </summary>
@@ -145,5 +147,10 @@ namespace FluentFTP {
 		/// Definitely ABB IDAL server
 		/// </summary>
 		ABBIDAL,
+
+		/// <summary>
+		/// Definitely Orbis GoldHEN server
+		/// </summary>
+		OrbisGoldHen
 	}
 }
