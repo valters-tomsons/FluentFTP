@@ -1132,16 +1132,18 @@ namespace FluentFTP
 				}
 				else
 				{
-
-					// check if the remote file exists, skip for GoldHEN ftp
+					// check if the remote file exists, assume the file exists for GoldHEN ftp
 					if (ServerType != FtpServer.OrbisGoldHen && !fileExistsKnown)
 					{
 						fileExists = await FileExistsAsync(remotePath, token);
 					}
+					else if (ServerType == FtpServer.OrbisGoldHen)
+					{
+						fileExists = true;
+					}
 
 					if (existsMode == FtpRemoteExists.Skip)
 					{
-
 						if (fileExists)
 						{
 							LogStatus(FtpTraceLevel.Info, "Skipping file because Skip is enabled and file already exists on server (Remote: " + remotePath + ", Local: " + localPath + ")");
